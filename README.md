@@ -7,9 +7,8 @@ Here are some example pictures:
 
 ![image](https://media4.giphy.com/media/dHqKY6iWyG3JEKHqK9/giphy.gif?cid=790b761137a3c624db1c20010b026c3828391f60f2e78bd5&rid=giphy.gif)
 
-
-
-
+Commands:
+!info [wallet id]
 
 
 
