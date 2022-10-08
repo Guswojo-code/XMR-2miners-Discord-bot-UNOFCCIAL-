@@ -32,7 +32,7 @@ def update():
 load_dotenv()
 
 bot = commands.Bot(command_prefix='!', intents=intents)
-token  = 'MTAyODMxNDk2NjgzMjQ0NzU4OA.GiWN4z.a3Fi_QdU6GVPZowkqN-Upe20KKd8vbkUSnckJY'
+token  = 'TOKEN'
 
 @bot.event
 async def on_ready():
