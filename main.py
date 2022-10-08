@@ -6,25 +6,49 @@ from discord.ext import commands
 from time import sleep
 from dotenv import load_dotenv
 import datetime
+from threading import Timer
 
 intents = discord.Intents.all()
 date = datetime.datetime.now()
 
-#Discord part
+
+
+
+#Discord bot:
 
 load_dotenv()
 
 bot = commands.Bot(command_prefix='!', intents=intents)
-token  = 'TOKEN'
+token = 'TOKEN'
+
+
+@bot.event
+#Updates the current price
+async def on_message(ctx):
+    r = requests.get("https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD")
+    usdData=json.loads(r.text)
+    usd = usdData["USD"]
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="1 XMR = " + str(usd) + " USD"))
+    print("Updated")
+
 
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
+    
+    
+    
+
+
+
+
 
 
 @bot.command()
 async def info(ctx, args1):
     #Update the data
+    current_units = " H/s"
+    avr_units = " H/s"
     acc = args1
     url = "https://xmr.2miners.com/api/accounts/" + acc
     response = requests.get(url)
@@ -32,8 +56,8 @@ async def info(ctx, args1):
     current_hashrate = data["currentHashrate"]
     avr_hashrate = data["hashrate"]
     workersOnline = data["workersOnline"]
-    workersOffline = data["workersOffline"]
     workers = data["workersTotal"]
+
     #print(json.dumps(data, indent=4))
     
     #Math
@@ -56,7 +80,8 @@ async def info(ctx, args1):
         avr_hashrate = avr_hashrate/1000
     else:
         avr_units = " H/s"
-   
+    
+
     #Format the numbers so they look *Beautiful*
 
     current_hashrate_formatted = "{:.2f}".format(current_hashrate)
@@ -72,6 +97,3 @@ async def info(ctx, args1):
 
 
 bot.run(token)
-
-    
-
