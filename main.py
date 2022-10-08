@@ -10,24 +10,7 @@ import datetime
 intents = discord.Intents.all()
 date = datetime.datetime.now()
 
-
-
-
-
-def update():
-    url = "https://xmr.2miners.com/api/accounts/" + acc
-    response = requests.get(url)
-    if response.status_code != 200:
-        print('error {}'.format(response.status_code))
-    else:
-        data = json.loads(response.text)
-        current_hashrate = data["currentHashrate"]
-        print("Updated!")
-
-
-
-#Discord bot:
-
+#Discord part
 
 load_dotenv()
 
