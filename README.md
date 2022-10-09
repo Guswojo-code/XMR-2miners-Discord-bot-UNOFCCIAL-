@@ -14,4 +14,6 @@ Commands:
 
 This is the unofficial xmr 2miners discord bot. It is open source so enjoy!
 
+Donate: 439z8DsPUV1LbYQuD5bRMUbHrG8X87r3SMVxGFDXGJa91udnQrg8xf1irhhdncaJUBQv2eRPJ3wZAS2qhhUj84dc9W4QgF3
+
 
